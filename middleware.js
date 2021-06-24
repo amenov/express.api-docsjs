@@ -1,7 +1,7 @@
 module.exports = (routes, options = {}) => {
   return (req, res, next) => {
     if (req.method === 'GET') {
-      if (req.originalUrl === req.baseUrl + '/routes') {
+      if (req.originalUrl === req.baseUrl + '/data') {
         return res.json({ routes, options })
       }
 

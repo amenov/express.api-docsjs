@@ -205,10 +205,10 @@ new Vue({
     async fetchRoutes() {
       const url = new URL(location.href)
 
-      const res = await axios.get(url.pathname + '/routes')
+      const { data } = await axios.get(url.pathname + '/data')
 
-      this.routes = res.data.routes
-      this.options = res.data.options
+      this.routes = data.routes
+      this.options = data.options
     },
     getVariantMethod(method) {
       switch (method.toLowerCase()) {
