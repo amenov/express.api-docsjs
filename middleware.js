@@ -1,4 +1,4 @@
-module.exports = (routes, options) => {
+module.exports = (routes, options = {}) => {
   return (req, res, next) => {
     if (req.method === 'GET') {
       if (req.baseUrl === req.baseUrl + '/routes') {

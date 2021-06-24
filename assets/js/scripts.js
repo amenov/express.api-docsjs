@@ -2,6 +2,9 @@ new Vue({
   data: {
     loading: true,
     routes: [],
+    options: {
+      title: 'API-docs'
+    },
     authorization: '',
     methods: [],
     filter: {
@@ -200,9 +203,12 @@ new Vue({
       )
     },
     async fetchRoutes() {
-      const res = await axios.get('/api-docs/routes')
+      const url = new URL(location.href)
+
+      const res = await axios.get(url.pathname + '/routes')
 
       this.routes = res.data.routes
+      this.options = res.data.options
     },
     getVariantMethod(method) {
       switch (method.toLowerCase()) {
