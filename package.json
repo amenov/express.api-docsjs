@@ -1,6 +1,6 @@
 {
   "name": "amenov.express.api-docs",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "main": "middleware.js",
   "scripts": {
