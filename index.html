@@ -523,16 +523,16 @@
         `<link rel="stylesheet" href="${location.pathname}/assets/css/styles.css">`
       )
 
-      const axios = createScript('assets/js/axios.min.js')
+      const scriptAxios = createScript('assets/js/axios.min.js')
 
-      axios.onload = function () {
+      scriptAxios.onload = function () {
         document.body.insertAdjacentElement(
           'beforeend',
           createScript('assets/js/scripts.js')
         )
       }
 
-      document.body.insertAdjacentElement('beforeend', axios)
+      document.body.insertAdjacentElement('beforeend', scriptAxios)
     </script>
   </body>
 </html>
