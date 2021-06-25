@@ -13,12 +13,6 @@
       rel="stylesheet"
       href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css"
     />
-    <script>
-      document.head.insertAdjacentElement(
-        'beforeend',
-        (document.createElement('base').href = location.href)
-      )
-    </script>
   </head>
   <body>
     <div class="wrapper" id="app">
@@ -514,7 +508,31 @@
     <script src="//unpkg.com/vue@latest/dist/vue.min.js"></script>
     <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
     <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>
-    <script src="assets/js/axios.min.js"></script>
-    <script src="assets/js/scripts.js"></script>
+
+    <script>
+      const createScript = (src) => {
+        const script = document.createElement('script')
+
+        script.src = `${location.pathname}/${src}`
+
+        return script
+      }
+
+      document.head.insertAdjacentHTML(
+        'beforeend',
+        `<link rel="stylesheet" href="${location.pathname}/assets/css/styles.css">`
+      )
+
+      const axios = createScript('assets/js/axios.min.js')
+
+      axios.onload = function () {
+        document.body.insertAdjacentElement(
+          'beforeend',
+          createScript('assets/js/scripts.js')
+        )
+      }
+
+      document.body.insertAdjacentElement('beforeend', axios)
+    </script>
   </body>
 </html>
