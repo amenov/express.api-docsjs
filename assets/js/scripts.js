@@ -3,7 +3,8 @@ new Vue({
     loading: true,
     routes: [],
     options: {
-      title: 'API-docs'
+      title: 'API-docs',
+      baseUrl: ''
     },
     authorization: '',
     methods: [],
@@ -22,6 +23,8 @@ new Vue({
   },
   computed: {
     groupRoutes() {
+      const baseUrl = this.options.baseUrl
+
       const generateRoutes = (route) => {
         const routes = []
 
@@ -37,7 +40,7 @@ new Vue({
                 controller: route.controller,
                 docs: routeDocs ?? {},
                 initialState: {
-                  url,
+                  url: baseUrl + url,
                   params: [{ enable: false, key: '', value: '' }],
                   headers: [{ enable: false, key: '', value: '' }],
                   body: '',
