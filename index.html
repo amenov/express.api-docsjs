@@ -510,13 +510,26 @@
     <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>
 
     <script>
-      document.body.insertAdjacentHTML(
+      const createScript = (src) => {
+        const script = document.createElement('script')
+
+        script.src = `${location.pathname}/${src}`
+
+        return script
+      }
+
+      document.head.insertAdjacentHTML(
         'beforeend',
-        `
-          <link rel="stylesheet" href="${location.pathname}/assets/css/styles.css" />
-          <script src="${location.pathname}/assets/js/axios.min.js"><\/script>
-          <script src="${location.pathname}/assets/js/scripts.js"><\/script>
-        `
+        `<link rel="stylesheet" href="${location.pathname}/assets/css/styles.css">`
+      )
+
+      document.body.insertAdjacentElement(
+        'beforeend',
+        createScript('assets/js/axios.min.js')
+      )
+      document.body.insertAdjacentElement(
+        'beforeend',
+        createScript('assets/js/scripts.js')
       )
     </script>
   </body>
