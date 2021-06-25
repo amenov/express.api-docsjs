@@ -14,9 +14,9 @@
       href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css"
     />
     <script>
-      document.head.insertAdjacentHTML(
+      document.head.insertAdjacentElement(
         'beforeend',
-        `<base href="${location.href}">`
+        (document.createElement('base').href = location.href)
       )
     </script>
   </head>
