@@ -447,7 +447,7 @@ Vue.component('endpoint', {
         }
       }
 
-      url = url.slice(1, -1)
+      url = url.slice(0, -1)
 
       return url
     }
