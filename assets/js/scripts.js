@@ -38,6 +38,7 @@ new Vue({
                 method: route.method,
                 url,
                 controller: route.controller,
+                dev: route.dev,
                 docs: routeDocs ?? {},
                 initialState: {
                   url: baseUrl + url,
