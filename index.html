@@ -148,7 +148,9 @@
               </b-badge>
               <div>
                 <div>
-                  <span>URL: <strong>{{ route.url}}</strong></span>
+                  <span>URL: <strong>{{route.url}}</strong>
+                    <b-badge v-if="route.dev" variant="secondary">development</b-badge>
+                  </span>
                 </div>
                 <div class="text-muted">
                   <small>Controller: {{route.controller}}</small>
